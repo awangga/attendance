@@ -11,6 +11,15 @@
 		@if(Cookie::get('domain_hash'))
 		{{ $homepage }}
 		@else
+		<div id="clock" class="light">
+			<div class="display">
+				<div class="weekdays"></div>
+				<div class="ampm"></div>
+				<div class="alarm"></div>
+				<div class="digits"></div>
+			</div>
+		</div>
+		
 		<div class="well">
 			<p>Ngikut homepage</p>
 			
