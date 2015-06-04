@@ -1,7 +1,7 @@
 @extends('template.skeleton')
 
 @section('title')
-{{ _('Home') }}
+{{ _('Absen') }}
 @stop
 
 @section('content')
