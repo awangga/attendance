@@ -6,7 +6,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"hisorange/browser-detect": "1.*"
+		"hisorange/browser-detect": "1.*",
+		"torann/geoip": "0.1.*@dev"
 	},
 	"autoload": {
 		"classmap": [
