@@ -8,7 +8,8 @@ class HomeController extends BaseController {
             $homepage = $domain->homepage ? $domain->homepage : $domain->domain;
             return View::make('home')->withHomepage($homepage);
         }else{
-            return View::make('home');
+        	$user_now = Profile::where('user_agent',$_SERVER['HTTP_USER_AGENT'])->where('remote_addr',$_SERVER['REMOTE_ADDR'])->first();
+            return View::make('home')->with('user_now',$user_now);
         }
 	}
 
