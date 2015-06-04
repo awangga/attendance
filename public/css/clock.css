@@ -6,6 +6,7 @@
 
 
 #clock{
+	margin:0px auto 60px;
 	position:relative;
 }
 
@@ -27,7 +28,7 @@
 	padding: 40px 20px 20px;
 	border-radius:6px;
 	position:relative;
-	height: 54px;
+	height: 100px;
 }
 
 
