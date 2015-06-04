@@ -24,7 +24,13 @@
 				<div class="digits"></div>
 			</div>
 			</div>
-			<p>Saya Masuk</p>
+			<br>
+			<p class="col-xs-6 col-sm-4">
+			{{ Form::open(array('url' => '/', 'method' => 'post', 'class'=> 'form-inline')) }}
+			{{ Form::submit('Start Work As '.$user_now->first_name, array('class' => 'btn btn-primary btn-lg')) }}
+
+        {{ Form::close() }}
+        <a href="{{ url('login') }}"><span class="glyphicon glyphicon-remove"></span>{{ _("it's not me") }}</a></p>
 			
 		</div>
 		@endif
