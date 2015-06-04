@@ -18,6 +18,8 @@ class CreateProfilesTable extends Migration {
 			$table->string('first_name', 255);
 			$table->string('last_name', 255);
 			$table->string('phone_number', 25);
+			$table->string('remote_addr', 255);
+			$table->string('user_agent', 255);
 			$table->timestamp('created_at');
 			$table->timestamp('updated_at');
 			$table->timestamp('deleted_at')->nullable();
