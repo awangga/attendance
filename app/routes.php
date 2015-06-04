@@ -12,3 +12,6 @@
 */
 
 Route::get('/', 'HomeController@showHome');
+
+Route::get('test', 'TestController@showWelcome');
+
