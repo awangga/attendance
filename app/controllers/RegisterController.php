@@ -28,7 +28,9 @@ class RegisterController extends BaseController {
 		$profile = new Profile(array(
 			'first_name' => $input['first_name'],
 			'last_name' => $input['last_name'],
-			'website' => '',
+			'phone_number' => '',
+			'remote_addr' => $_SERVER['REMOTE_ADDR'],
+			'user_agent' => $_SERVER['HTTP_USER_AGENT'],
 		));
 		$profile->save();
 
