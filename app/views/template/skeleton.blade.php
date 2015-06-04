@@ -19,6 +19,8 @@
 		<!--data tables -->
 		{{ HTML::style('css/dataTables.bootstrap.css') }}
 		{{ HTML::style('css/dataTables.responsive.css') }}
+		<!--clock-->
+		{{ HTML::style('css/clock.css') }}
 		
 		<style type="text/css" class="init">
 	body { font-size: 140% }
@@ -69,6 +71,9 @@ $(document).ready(function() {
 		{{ HTML::script('js/bootstrap.min.js') }}
 		{{ HTML::script('js/plugins.js') }}
 		{{ HTML::script('js/script.js') }}
+		<!--  clock  -->
+		{{ HTML::script('js/moment.min.js') }}
+		{{ HTML::script('js/clock.js') }}
 
 
 <script type="text/javascript">
