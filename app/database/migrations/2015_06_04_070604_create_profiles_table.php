@@ -17,7 +17,7 @@ class CreateProfilesTable extends Migration {
 			$table->increments('id');
 			$table->string('first_name', 255);
 			$table->string('last_name', 255);
-			$table->string('website', 255);
+			$table->string('phone_number', 25);
 			$table->timestamp('created_at');
 			$table->timestamp('updated_at');
 			$table->timestamp('deleted_at')->nullable();
