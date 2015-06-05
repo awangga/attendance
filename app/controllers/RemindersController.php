@@ -22,10 +22,16 @@ class RemindersController extends Controller {
 		switch ($response = Password::remind(Input::only('email')))
 		{
 			case Password::INVALID_USER:
-				return Redirect::back()->with('error', Lang::get($response));
+				return Output::push(array(
+							'path' => 'password/recovery',
+							'messages' => array('fail' => _('Unable to find user')),
+							));
 
 			case Password::REMINDER_SENT:
-				return Redirect::back()->with('status', Lang::get($response));
+				return Output::push(array(
+							'path' => 'password/recovery',
+							'messages' => array('success' => _('Password recovery request has been sent to email')),
+							));
 		}
 	}
 
@@ -63,12 +69,26 @@ class RemindersController extends Controller {
 		switch ($response)
 		{
 			case Password::INVALID_PASSWORD:
+				return Output::push(array(
+					'path' => 'password/recovery',
+					'messages' => array('fail' => _('Invalid password')),
+					));
 			case Password::INVALID_TOKEN:
+				return Output::push(array(
+					'path' => 'password/recovery',
+					'messages' => array('fail' => _('Invalid token')),
+					));
 			case Password::INVALID_USER:
-				return Redirect::back()->with('error', Lang::get($response));
+				return Output::push(array(
+							'path' => 'password/recovery',
+							'messages' => array('fail' => _('Unable to find user')),
+							));
 
 			case Password::PASSWORD_RESET:
-				return Redirect::to('/');
+				return Output::push(array(
+						'path' => 'login',
+						'messages' => array('success' => _('Password has been reset')),
+						));
 		}
 	}
 
