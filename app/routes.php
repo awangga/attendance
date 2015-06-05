@@ -17,7 +17,7 @@ foreach (Domain::all() as $dcp) {
 	});
 }
 
-Route::controller('/', 'HomeController');
+
 
 Route::get('test', 'TestController@showWelcome');
 
@@ -34,3 +34,5 @@ Route::controller('password', 'PasswordController');
 Route::controller('dashboard', 'DashboardController');
 
 Route::controller('about', 'AboutController');
+
+Route::controller('/', 'HomeController');
