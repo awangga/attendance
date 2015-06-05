@@ -1,15 +1,15 @@
 @extends('template.skeleton')
 
 @section('title')
-{{ Auth::user()->username.' | '._('Online phones') }}
+{{ Auth::user()->username.' | '._('Today Report') }}
 @stop
 
 @section('content')
 
 	<div class="container">
 
-		<h1>{{ _('Attendances') }}</h1>
-        <p>Last checkin : {{ count($attends) > 0 ? $attends[0]->created_at : ''}}</p>
+		<h1>{{ _('Today') }}</h1>
+        <p>First checkin : {{ count($attends) > 0 ? $attends[0]->created_at : ''}}</p>
 
 		@include('template.messages')
 
