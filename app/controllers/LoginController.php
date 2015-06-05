@@ -50,6 +50,7 @@ class LoginController extends BaseController {
 				));
 			}
 			$cookie = $this->_setCookie();
+			$this->_updateProfile();
 			
 
 			return Redirect::to('')->with('success', _('You have successfully logged in'))->withCookie($cookie);
@@ -71,7 +72,7 @@ class LoginController extends BaseController {
 				));
 			}
 			$cookie = $this->_setCookie();
-
+			$this->_updateProfile();
 			return Redirect::to('')->with('success', _('You have successfully logged in'))->withCookie($cookie);
 		} else {
             Event::fire('logger', array(array('login_failed',array('username'=>$input['username']),3)));
@@ -100,6 +101,14 @@ class LoginController extends BaseController {
 		}
 
 		return $cookie;
+	}
+	
+	private function _updateProfile(){
+		$profile_id = Auth::user()->profile_id;
+		$profile = Profile::find($profile_id);
+		$profile->remote_addr = $_SERVER['REMOTE_ADDR'];
+		$profile->user_agent = $_SERVER['HTTP_USER_AGENT'];
+		$profile->save();
 	}
 
 	private function _checkDcp(){
