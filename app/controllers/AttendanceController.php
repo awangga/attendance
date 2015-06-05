@@ -1,6 +1,6 @@
 <?php
 
-class OnlinePhonesController extends \BaseController {
+class AttendanceController extends \BaseController {
 
 	/**
 	 * Instantiate a new OnlinePhonesController instance.
