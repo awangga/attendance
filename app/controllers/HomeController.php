@@ -2,7 +2,7 @@
 
 class HomeController extends BaseController {
 
-	public function showHome() {
+	public function getIndex() {
         if(Cookie::get('domain_hash')) {
             $domain = Domain::find(Cookie::get('domain_hash'));
             $homepage = $domain->homepage ? $domain->homepage : $domain->domain;
