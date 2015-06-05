@@ -40,7 +40,7 @@
                                 <li>{{ link_to('gateway', _('Manage Gateway')) }}</li>
                             @endif
                             @if (Auth::user()->status == 3)
-                                <li>{{ link_to('login', _('Set This As Default')) }}</li>
+                                <li>{{ link_to('login', _('Default Device')) }}</li>
                             @endif
                             @if (Auth::user()->status == 4)
                                 <li>{{ link_to('phone_number', _('Phone Number')) }}</li>
@@ -54,7 +54,7 @@
                             @if (Auth::user()->status == 2)
                                 <li>{{ link_to('call_detail_reports', _('Call Detail Records')) }}</li>
                             @endif
-                            <li>{{ link_to('attendance', _('Attendance')) }}</li>
+                            <li>{{ link_to('attendance', _('Today')) }}</li>
                             
                         </ul>
                     </li>
