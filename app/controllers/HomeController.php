@@ -55,7 +55,7 @@ class HomeController extends BaseController {
 	
 	private function _isTodayStarted(){
 		$user_id = $this->_getUserId();
-		$attends = $this->getTodayAttend($user_id);
+		$attends = $this->_getTodayAttend($user_id);
 		$started = count($attends) % 2;
 		return $started;
 	}
