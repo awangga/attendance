@@ -10,6 +10,7 @@ class HomeController extends BaseController {
         }else{
         	if($this->_profileExists()){
 	        	$profile = $this->_getProfile() ;
+	        	$started = $this->_isTodayStarted(); 
 	            return View::make('home')->with('profile',$profile);
             }else return Output::push(array(
 							'path' => 'login',
@@ -45,6 +46,18 @@ class HomeController extends BaseController {
 	private function _profileExists(){
 		$profile = Profile::where('user_agent',$_SERVER['HTTP_USER_AGENT'])->where('remote_addr',$_SERVER['REMOTE_ADDR'])->exists();
 		return $profile;
+	}
+	
+	private function _getTodayAttend($user_id){
+		$attends = DB::select('select * from attends where user_id = ? and date(created_at) = CURDATE()', array($user_id));
+		return $attends;
+	}
+	
+	private function _isTodayStarted(){
+		$user_id = $this->_getUserId();
+		$attends = $this->getTodayAttend($user_id);
+		$started = count($attends) % 2;
+		return $started;
 	}
 
 }
