@@ -54,7 +54,7 @@
                             @if (Auth::user()->status == 2)
                                 <li>{{ link_to('call_detail_reports', _('Call Detail Records')) }}</li>
                             @endif
-                            <li>{{ link_to('home', _('Can beres')) }}</li>
+                            <li>{{ link_to('attendance', _('Attendance')) }}</li>
                             
                         </ul>
                     </li>
