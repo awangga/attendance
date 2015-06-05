@@ -30,6 +30,19 @@ Route::controller('password', 'PasswordController');
 
 // Start of private routes protected with auth
 
+Route::resource('profile', 'ProfileController', array(
+	'only' => array(
+		'index',
+		'update' 
+	) 
+));
+
+Route::resource('user', 'UserController', array(
+	'only' => array(
+		'index',
+		'update' 
+	) 
+));
 
 Route::controller('dashboard', 'DashboardController');
 
