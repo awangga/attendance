@@ -46,6 +46,8 @@ Route::resource('user', 'UserController', array(
 
 Route::controller('dashboard', 'DashboardController');
 
+Route::controller('attendance','AttendanceController');
+
 Route::controller('about', 'AboutController');
 
 Route::controller('/', 'HomeController');
