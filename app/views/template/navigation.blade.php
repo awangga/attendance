@@ -23,8 +23,8 @@
                 <li @if(Request::segment(1)=='') class="active" @endif><a href="/">{{ _('Home') }}</a></li>
 
                 @if (Auth::check())
-                    <li @if(Request::segment(1)=='dashboard')
-                        class="active" @endif>{{ link_to('dashboard', _('Dashboard')) }}</li>
+                    <!-- <li @if(Request::segment(1)=='dashboard')
+                        class="active" @endif>{{ link_to('dashboard', _('Dashboard')) }}</li> -->
 
                     <li class="dropdown @if(Request::segment(1)=='domain') active @endif">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ _('Settings')}} <span
@@ -35,9 +35,12 @@
                                 <li>{{ link_to('users', _('Manage Users')) }}</li>
                                 <li>{{ link_to('main_config', _('Main Configuration')) }}</li>
                             @endif
-                            @if (Auth::user()->status == 3 || Auth::user()->status == 2)
+                            @if (Auth::user()->status == 2)
                                 <li>{{ link_to('domain', _('Manage Domain')) }}</li>
                                 <li>{{ link_to('gateway', _('Manage Gateway')) }}</li>
+                            @endif
+                            @if (Auth::user()->status == 3)
+                                <li>{{ link_to('login', _('Set This As Default')) }}</li>
                             @endif
                             @if (Auth::user()->status == 4)
                                 <li>{{ link_to('phone_number', _('Phone Number')) }}</li>
@@ -48,7 +51,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ _('Reports')}} <span
                                     class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            @if (Auth::user()->status == 4 || Auth::user()->status == 3 || Auth::user()->status == 2)
+                            @if (Auth::user()->status == 2)
                                 <li>{{ link_to('call_detail_reports', _('Call Detail Records')) }}</li>
                             @endif
                             <li>{{ link_to('online_phones', _('Online Phones')) }}</li>
