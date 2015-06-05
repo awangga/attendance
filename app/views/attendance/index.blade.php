@@ -9,7 +9,7 @@
 	<div class="container">
 
 		<h1>{{ _('Attendances') }}</h1>
-        <p>Last update: {{ count($attends) > 0 ? $attends[0]->created_at : ''}}</p>
+        <p>Last checkin : {{ count($attends) > 0 ? $attends[0]->created_at : ''}}</p>
 
 		@include('template.messages')
 
