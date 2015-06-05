@@ -51,11 +51,14 @@ class ProfileController extends BaseController {
 
 			return Output::push(array(
 				'path' => 'profile',
+				'errors' => 'Profile has been saved',
 				'messages' => array('success', _('Profile has been saved')),
+				'input' => TRUE
 				));
 		} else {
 			return Output::push(array(
 				'path' => 'profile',
+				'errors' => 'Unable to update profile',
 				'messages' => array('fail', _('Unable to update profile')),
 				'input' => TRUE
 				));
