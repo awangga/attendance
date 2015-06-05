@@ -43,7 +43,7 @@ class LoginController extends BaseController {
 			}
 			$cookie = $this->_setCookie();
 
-			return Redirect::to('dashboard')->with('success', _('You have successfully logged in'))->withCookie($cookie);
+			return Redirect::to('')->with('success', _('You have successfully logged in'))->withCookie($cookie);
 		}elseif(Auth::attempt(array('username' => $input['username'], 'password' => $input['password'], 'status' => 3 ), $input['remember']) || Auth::attempt(array('email' => $input['username'], 'password' => $input['password'], 'status' => 3 ), $input['remember'])){
 			//check ban status
 			if (Auth::user()->flag_banned == 1){
@@ -63,7 +63,7 @@ class LoginController extends BaseController {
 			}
 			$cookie = $this->_setCookie();
 
-			return Redirect::to('dashboard')->with('success', _('You have successfully logged in'))->withCookie($cookie);
+			return Redirect::to('')->with('success', _('You have successfully logged in'))->withCookie($cookie);
 		} else {
             Event::fire('logger', array(array('login_failed',array('username'=>$input['username']),3)));
 			return Output::push(array(
