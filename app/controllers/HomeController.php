@@ -10,7 +10,6 @@ class HomeController extends BaseController {
         }else{
         	if($this->_profileExists()){
 	        	$profile = $this->_getProfile() ;
-	            var_dump($profile);
 	            return View::make('home')->with('profile',$profile);
             }else return Output::push(array(
 							'path' => 'login',
