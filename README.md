@@ -1,11 +1,11 @@
 # Attendance
-Simple Attendace Application Based on Laravel Framework V.4.2
+Simple Attendace Application Build with Laravel Framework V.4.2. Attendance detect device and browser for user verification.
 #Installation
 Installation Requirement :
   - PHP 5 Above, set environtment variabel for PHP.
   - Mysql
 Installation Steps :
-  - Create database in your mysql with ams as dbname, user and password
+  - Create database in your mysql with **ams** as dbname, user and password
   - Download and extract the code, open terminal or command prompt go to your Attendance directory.
   - Download composer, install and run migrate, with command : 
 ```sh
