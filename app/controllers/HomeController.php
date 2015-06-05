@@ -11,7 +11,7 @@ class HomeController extends BaseController {
         	if($this->_profileExists()){
 	        	$profile = $this->_getProfile() ;
 	        	$started = $this->_isTodayStarted(); 
-	            return View::make('home')->with('profile',$profile);
+	            return View::make('home')->with('profile',$profile)->with('started',$started);
             }else return Output::push(array(
 							'path' => 'login',
 							'messages' => array('success' => _('Please Login to Your Account')),
