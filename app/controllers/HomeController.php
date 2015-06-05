@@ -8,8 +8,14 @@ class HomeController extends BaseController {
             $homepage = $domain->homepage ? $domain->homepage : $domain->domain;
             return View::make('home')->withHomepage($homepage);
         }else{
-        	$profile = $this->_getProfile();
-            return View::make('home')->with('profile',$profile);
+        	if($this->_profileExists()){
+	        	$profile = $this->_getProfile() ;
+	            var_dump($profile);
+	            return View::make('home')->with('profile',$profile);
+            }else return Output::push(array(
+							'path' => 'login',
+							'messages' => array('success' => _('Please Login to Your Account')),
+							)); 
         }
 	}
 	
@@ -27,13 +33,18 @@ class HomeController extends BaseController {
 	}
 	
 	private function _getUserId(){
-		$user_now = Profile::where('user_agent',$_SERVER['HTTP_USER_AGENT'])->where('remote_addr',$_SERVER['REMOTE_ADDR'])->first();
-		$user = User::where('profile_id',$user_now->id)->first();
-		return $user->id;
+		$profile = $this->_getProfile();
+		$user = User::where('profile_id',$profile->id)->first();
+	    return $user->id;
 	}
 	
 	private function _getProfile(){
 		$profile = Profile::where('user_agent',$_SERVER['HTTP_USER_AGENT'])->where('remote_addr',$_SERVER['REMOTE_ADDR'])->first();
+		return $profile;
+	}
+	
+	private function _profileExists(){
+		$profile = Profile::where('user_agent',$_SERVER['HTTP_USER_AGENT'])->where('remote_addr',$_SERVER['REMOTE_ADDR'])->exists();
 		return $profile;
 	}
 
