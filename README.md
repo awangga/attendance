@@ -14,3 +14,7 @@ $ php composer.phar install
 $ php artisan migrate
 ```
 
+License
+----
+
+gnu affero general public license v3 
