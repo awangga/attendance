@@ -23,13 +23,13 @@ class RemindersController extends Controller {
 		{
 			case Password::INVALID_USER:
 				return Output::push(array(
-							'path' => 'password/recovery',
+							'path' => 'password/remind',
 							'messages' => array('fail' => _('Unable to find user')),
 							));
 
 			case Password::REMINDER_SENT:
 				return Output::push(array(
-							'path' => 'password/recovery',
+							'path' => 'password/remind',
 							'messages' => array('success' => _('Password recovery request has been sent to email')),
 							));
 		}
@@ -70,17 +70,17 @@ class RemindersController extends Controller {
 		{
 			case Password::INVALID_PASSWORD:
 				return Output::push(array(
-					'path' => 'password/recovery',
+					'path' => 'password/remind',
 					'messages' => array('fail' => _('Invalid password')),
 					));
 			case Password::INVALID_TOKEN:
 				return Output::push(array(
-					'path' => 'password/recovery',
+					'path' => 'password/remind',
 					'messages' => array('fail' => _('Invalid token')),
 					));
 			case Password::INVALID_USER:
 				return Output::push(array(
-							'path' => 'password/recovery',
+							'path' => 'password/remind',
 							'messages' => array('fail' => _('Unable to find user')),
 							));
 
