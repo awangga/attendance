@@ -26,10 +26,18 @@ class HomeController extends BaseController {
         $attend->remote_addr = $_SERVER['REMOTE_ADDR'];
         $attend->user_agent = $_SERVER['HTTP_USER_AGENT'];
         $attend->save();
-        return Output::push(array(
+        $started = $this->_isTodayStarted(); 
+        if($started == 0){
+	        return Output::push(array(
 							'path' => '/',
-							'messages' => array('success' => _('Thank You')),
-							));    
+							'errors' => 'Attendace Stopped',
+							//'messages' => array('success' => _('Time Stopped')),
+							));
+        }else return Output::push(array(
+							'path' => '/',
+							'messages' => array('success' => _('Attendace Started')),
+							));
+        
 	}
 	
 	private function _getUserId(){
