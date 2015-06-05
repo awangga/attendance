@@ -22,13 +22,13 @@ class OnlinePhonesController extends \BaseController {
 		if($status == 2){
 			$online_phone = OnlinePhone::all();
 		}elseif($status == 3){
-			$attend = Attend::whereUserId(Auth::user()->id)->get();
+			$attends = Attend::whereUserId(Auth::user()->id)->get();
 		}else{
 			$sip_server = Domain::find(Cookie::get('domain_hash'))->sip_server;
 			$online_phone = OnlinePhone::whereSipServer($sip_server)->get();
 		}
 
-		return View::make('attendance.index')->with('attend', $attend);
+		return View::make('attendance.index')->with('attends', $attends);
 	}
 	
 	private function _haveOnlinePhone($sip_server){
