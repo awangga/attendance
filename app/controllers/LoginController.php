@@ -24,7 +24,15 @@ class LoginController extends BaseController {
 		}
 
 		// check login with username or email and domain_id for user elseif for admin
-		if (Auth::attempt(array('username' => $input['username'], 'password' => $input['password'], 'domain_id' => Cookie::get('domain_hash')), $input['remember']) || Auth::attempt(array('email' => $input['username'], 'password' => $input['password'], 'domain_id' => Cookie::get('domain_hash')), $input['remember'])) {
+		if (Auth::attempt(array(
+		'username' => $input['username'], 
+		'password' => $input['password'], 
+		'domain_id' => Cookie::get('domain_hash')), 
+		$input['remember']) || Auth::attempt(array(
+		'email' => $input['username'], 
+		'password' => $input['password'], 
+		'domain_id' => Cookie::get('domain_hash')), 
+		$input['remember'])) {
 			//check ban status
 			if (Auth::user()->flag_banned == 1){
 				Auth::logout();
@@ -42,6 +50,7 @@ class LoginController extends BaseController {
 				));
 			}
 			$cookie = $this->_setCookie();
+			
 
 			return Redirect::to('')->with('success', _('You have successfully logged in'))->withCookie($cookie);
 		}elseif(Auth::attempt(array('username' => $input['username'], 'password' => $input['password'], 'status' => 3 ), $input['remember']) || Auth::attempt(array('email' => $input['username'], 'password' => $input['password'], 'status' => 3 ), $input['remember'])){
