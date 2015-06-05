@@ -26,7 +26,8 @@ Route::get('logout', 'LoginController@getLogout');
 
 Route::controller('register', 'RegisterController');
 
-Route::controller('password', 'PasswordController');
+Route::controller('password', 'RemindersController');
+//Route::controller('password', 'PasswordController');
 
 // Start of private routes protected with auth
 
