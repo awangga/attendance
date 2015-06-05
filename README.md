@@ -7,7 +7,7 @@ Installation Requirement :
 Installation Steps :
   - Create database in your mysql with ams as dbname, user and password
   - Download and extract the code, open terminal or command prompt go to your Attendance directory.
-  - Download composer, with command : 
+  - Download composer, install and run migrate, with command : 
 ```sh
 $ php -r "readfile('https://getcomposer.org/installer');" | php
 $ php composer.phar install
