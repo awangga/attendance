@@ -11,7 +11,8 @@ class HomeController extends BaseController {
         	if($this->_profileExists()){
 	        	$profile = $this->_getProfile() ;
 	        	$started = $this->_isTodayStarted(); 
-	            return View::make('home')->with('profile',$profile)->with('started',$started);
+	        	$today_early = $this->_getTodayEarly();
+	            return View::make('home')->with('profile',$profile)->with('started',$started)->with('today_early',$today_early);
             }else return Output::push(array(
 							'path' => 'login',
 							'messages' => array('success' => _('Please Login to Your Account')),
@@ -59,6 +60,15 @@ class HomeController extends BaseController {
 	private function _getTodayAttend($user_id){
 		$attends = DB::select('select * from attends where user_id = ? and date(created_at) = CURDATE()', array($user_id));
 		return $attends;
+	}
+	
+	private function _getTodayEarly(){
+		$attends = DB::select('select user_id from attends where date(created_at) = CURDATE()');
+		$user_id = $attends[0]->user_id;
+		$user = User::find($user_id);
+		$profile = Profile::find($user->profile_id);
+		return $profile;
+		
 	}
 	
 	private function _isTodayStarted(){
