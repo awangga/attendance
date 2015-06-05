@@ -54,7 +54,7 @@
                             @if (Auth::user()->status == 2)
                                 <li>{{ link_to('call_detail_reports', _('Call Detail Records')) }}</li>
                             @endif
-                            <li>{{ link_to('online_phones', _('Online Phones')) }}</li>
+                            <li>{{ link_to('home', _('Can beres')) }}</li>
                             
                         </ul>
                     </li>
@@ -62,7 +62,6 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ _('My account')}} <span
                                     class="caret"></span></a>
                         <ul class="dropdown-menu">
-                        	 <li>{{ link_to('token', _('Token')) }}</li>
                             <li>{{ link_to('profile', _('Profile')) }}</li>
                             <li>{{ link_to('user', _('Account')) }}</li>
                             <li class="divider"></li>
