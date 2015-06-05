@@ -22,7 +22,7 @@ class AttendanceController extends \BaseController {
 		if($status == 2){
 			$online_phone = OnlinePhone::all();
 		}elseif($status == 3){
-			$attends = Attend::whereUserId(Auth::user()->id)->get();
+			$attends = $this->_getTodayAttend(Auth::user()->id);
 		}else{
 			$sip_server = Domain::find(Cookie::get('domain_hash'))->sip_server;
 			$online_phone = OnlinePhone::whereSipServer($sip_server)->get();
@@ -37,6 +37,11 @@ class AttendanceController extends \BaseController {
 				return TRUE;
 			}else return FALSE;
 		
+	}
+	
+	private function _getTodayAttend($user_id){
+		$attends = DB::select('select * from attends where user_id = ? and date(created_at) = CURDATE()', array($user_id));
+		return $attends;
 	}
 
 
