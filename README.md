@@ -2,7 +2,13 @@
 Simple Attendace Application Build with Laravel Framework V.4.2. Attendance detect device and browser for user verification.
 #Installation
 Installation Requirement :
-  - PHP 5 Above, set environtment variabel for PHP.
+  - PHP 5 Above, set environtment variabel for PHP : 
+  	- Start->Control Panel\System and Security\System->advanced system settings.
+  	- Then click->environment variables.
+  	- Search "Path" on the System Variables -> Edit
+  	- After that, on the variable value, add the ";"
+  	- And Then, copy->Paste the address version php (example:"C:\xampp\php")
+  	- click "ok" to Finish
   - Mysql
 Installation Steps :
   - Create database in your mysql with dataase name, user and password : **ams**
