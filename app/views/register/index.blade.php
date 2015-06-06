@@ -31,12 +31,12 @@
 					</div>
 
 					<div class="form-group">
-						{{ Form::label('username', 'Account ID') }}
+						{{ Form::label('username', 'Create Account ID') }}
 						{{ Form::text('username', '', array('class' => 'form-control')) }}
 					</div>
 
 					<div class="form-group">
-						{{ Form::label('password', 'Password') }}
+						{{ Form::label('password', 'Create Password') }}
 						<div class="input-group">
 							{{ Form::password('password', array('class' => 'form-control')) }}
 							<span class="input-group-addon show-password"><span class="glyphicon glyphicon-eye-open"></span></span>
