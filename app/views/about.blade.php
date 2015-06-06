@@ -10,7 +10,7 @@
 		@include('template.messages')
 
 		<div class="well">
-			<p>Hubungi kami melalui Website kami <a href="http://www.saungit.org/" target="_blank">disini</a>.</p>
+			<p>Visit our Website in <a href="http://www.saungit.org/" target="_blank">here</a>. For any support version just contact awangga@passionit.co.id</p>
 		</div>
 	</div>	
 @stop
