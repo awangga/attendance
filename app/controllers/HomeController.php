@@ -64,10 +64,13 @@ class HomeController extends BaseController {
 	
 	private function _getTodayEarly(){
 		$attends = DB::select('select user_id from attends where date(created_at) = CURDATE()');
-		$user_id = $attends[0]->user_id;
-		$user = User::find($user_id);
-		$profile = Profile::find($user->profile_id);
-		return $profile;
+		if(isset($attends[0])){
+			$user_id = $attends[0]->user_id;
+			$user = User::find($user_id);
+			$profile = Profile::find($user->profile_id);
+			return $profile;
+		}return new Profile;
+		
 		
 	}
 	
